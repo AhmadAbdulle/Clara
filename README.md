@@ -1,6 +1,6 @@
 CLARA — Cyber Log Analysis and Response Assistant
 A web app that analyses security log files using AI. Drop in a log, get a structured breakdown of every threat, see it mapped to MITRE ATT&CK, and ask follow-up questions to a built-in analyst chat. Export the whole thing as a PDF incident report when you are done.
-Live demoo: https://github.com/AhmadAbdulle/Clara
+Live demo: https://github.com/AhmadAbdulle/Clara
 
 What it does
 Reading through hundreds of lines of access logs looking for a brute force attempt or SQL injection is tedious and easy to get wrong. CLARA automates that first pass. You paste or upload a log file and it comes back with every suspicious event classified by severity, tagged with a MITRE ATT&CK technique ID, scored out of 100, and paired with a recommended action. After that you can type questions directly to the analyst chat and it will answer based on what it found in your specific log.
