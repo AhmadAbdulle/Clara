@@ -73,7 +73,7 @@ export default function Tour({ onComplete }) {
       }
 
       const rect = el.getBoundingClientRect();
-      const padding = 6;
+      const padding = 2;
 
       // Position the highlight mask
       setHighlightStyle({
