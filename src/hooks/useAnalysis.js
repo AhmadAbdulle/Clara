@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useAnalysis(activeSession, setSessions, showToast) {
+export default function useAnalysis({ activeSession, setSessions, showToast }) {
   const [isAnalysing, setIsAnalysing] = useState(false);
   const [progressPercentage, setProgressPercentage] = useState(0);
   const [milestoneText, setMilestoneText] = useState('');
@@ -71,7 +71,13 @@ export default function useAnalysis(activeSession, setSessions, showToast) {
   };
 
   const handleAnalyse = async () => {
-    if (!activeSession || !activeSession.logText.trim() || isAnalysing) return;
+    if (!activeSession || isAnalysing) return;
+
+    const logText = activeSession.logText || '';
+    if (!logText.trim()) {
+      showToast('Please enter a log before analysing', 'error');
+      return;
+    }
 
     setIsAnalysing(true);
     setTimelineStatus('loading');

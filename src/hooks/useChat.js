@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useChat(activeSession, setSessions, showToast) {
+export default function useChat({ activeSession, setSessions, showToast }) {
   const [isChatLoading, setIsChatLoading] = useState(false);
 
   const handleSendChatMessage = async (text) => {
