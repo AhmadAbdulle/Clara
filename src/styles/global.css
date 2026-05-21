@@ -1,0 +1,363 @@
+:root {
+  --bg-primary: #f9f7f4;
+  --bg-secondary: #f0ede8;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6560;
+  --text-muted: #8a8580;
+  --accent-teal: #1a3a4a;
+  --critical: #c0392b;
+  --high: #d4820a;
+  --medium: #2c6e9e;
+  --low: #8a8580;
+  
+  --border: #ede9e3;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.04);
+  
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  
+  --transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html.app-route-active,
+body.app-route-active {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Skeleton Pulse Animation */
+@keyframes skeleton-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+.skeleton-loading {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background-color: rgba(26, 58, 74, 0.08);
+  border-radius: 8px;
+}
+
+/* Base button and input styling */
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover:not(:disabled) {
+  background: var(--bg-primary);
+  border-color: var(--text-muted);
+  color: var(--accent-teal);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-sans);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 2px rgba(26, 58, 74, 0.06);
+}
+
+/* Tooltips styling */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(26, 58, 74, 0.95);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: normal;
+  width: max-content;
+  max-width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(26, 58, 74, 0.15);
+  border-left-color: var(--accent-teal);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Dashboard SaaS Layout Grid */
+.dashboardContainer {
+  display: grid;
+  grid-template-columns: 260px 1fr 380px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.sidebarColumn {
+  width: 260px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--bg-card);
+  border-right: 1px solid var(--border);
+}
+
+.centerColumn {
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.rightColumn {
+  width: 380px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+}
+
+/* Toast Notifications */
+.toastContainer {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background-color: var(--bg-card);
+  border-left: 4px solid var(--accent-teal);
+  padding: 14px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(26, 58, 74, 0.12);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 280px;
+  max-width: 400px;
+  animation: toast-slide-in 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toastError {
+  border-left-color: var(--critical);
+}
+
+.toastWarning {
+  border-left-color: var(--high);
+}
+
+.toastSuccess {
+  border-left-color: #27ae60;
+}
+
+/* Custom Cutout Tour Highlights */
+.tourHighlightMask {
+  position: fixed;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(26, 58, 74, 0.5);
+  z-index: 8000;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.tourTooltip {
+  position: fixed;
+  background-color: var(--bg-card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(26, 58, 74, 0.16);
+  z-index: 8500;
+  width: 280px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tourTooltipHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tourStepCounter {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.tourTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.tourActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.tourSkipBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+.tourSkipBtn:hover {
+  color: var(--critical);
+}
+
+.tourNavBtnRow {
+  display: flex;
+  gap: 6px;
+}
+
+.tourBtn {
+  font-size: 11.5px;
+  padding: 6px 12px;
+}
+
+.tourBtnPrimary {
+  background-color: var(--accent-teal);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.tourBtnPrimary:hover {
+  background-color: #122833;
+}
+
+/* Timeline slide-up staggered animation keyframes */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

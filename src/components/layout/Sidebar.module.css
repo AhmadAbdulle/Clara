@@ -1,0 +1,455 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg-card);
+  overflow: hidden;
+}
+
+/* App identity anchor */
+.identityAnchor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.logoImage {
+  height: 24px;
+  width: auto;
+}
+
+.appName {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Section Headings */
+.sectionLabel {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 0 20px;
+  margin-bottom: 12px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 16px 0;
+  border: none;
+}
+
+/* Log Input section styles */
+.inputWrapper {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.textareaWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 180px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text-primary);
+  resize: vertical;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.textarea:focus {
+  border-color: var(--accent-teal);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04), 0 0 0 2px rgba(26, 58, 74, 0.05);
+}
+
+.fileActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* Action button stylings */
+.actionBtn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.actionBtn:hover:not(:disabled) {
+  background-color: var(--bg-primary);
+  color: var(--accent-teal);
+  border-color: var(--text-muted);
+}
+
+/* Presets Dropdown */
+.presetsWrapper {
+  position: relative;
+}
+
+.dropdownBtn {
+  width: 100%;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  margin-top: 4px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  color: var(--text-primary);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: var(--bg-primary);
+  color: var(--accent-teal);
+}
+
+/* Analyse Button */
+.analyseBtn {
+  width: 100%;
+  background-color: var(--accent-teal);
+  color: #ffffff;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: var(--shadow-sm);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.analyseBtn:hover:not(:disabled) {
+  background-color: #122833;
+  color: #ffffff;
+}
+
+.analyseBtn:disabled {
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+/* Session section styles */
+.sessionWrapper {
+  padding: 0 20px;
+}
+
+.sessionBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  transition: var(--transition);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sessionBtn:hover {
+  color: var(--accent-teal);
+}
+
+/* Export section styles */
+.exportWrapper {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exportBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 8px 0;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.exportBtn:hover:not(:disabled) {
+  color: var(--accent-teal);
+  background: none;
+}
+
+.exportBtn:disabled {
+  color: var(--text-muted);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Warnings and Validation */
+.warningBanner {
+  background-color: #fefbeb;
+  border: 1px solid var(--high);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: warning-slide 150ms ease-out;
+}
+
+@keyframes warning-slide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.warningText {
+  font-size: 11.5px;
+  color: #92400e;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.bannerActions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.bannerBtn {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.bannerBtnPrimary {
+  background-color: var(--high);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.bannerBtnPrimary:hover {
+  background-color: #b45309;
+}
+
+/* Character Counter */
+.charCounter {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.charCounterAmber {
+  color: var(--high);
+  font-weight: bold;
+}
+
+.charCounterRed {
+  color: var(--critical);
+  font-weight: bold;
+}
+
+/* Rate Limiting */
+.rateLimitText {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Sidebar Footer & How this works */
+.infoBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 6px 20px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.infoBtn:hover {
+  color: var(--accent-teal);
+}
+
+.sidebarFooter {
+  margin-top: auto; /* Push to the very bottom */
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footerCredit {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.githubLink {
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.githubLink:hover {
+  color: var(--accent-teal);
+}
+
+/* Progress bar styles */
+.progressContainer {
+  margin-top: 12px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.milestoneText {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-teal);
+}
+
+.estimatedTime {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.progressBarWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progressBarBg {
+  flex: 1;
+  height: 6px;
+  background-color: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--accent-teal);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.cancelBtn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: none;
+  color: var(--text-secondary);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: none;
+  transition: var(--transition);
+}
+
+.cancelBtn:hover {
+  background-color: var(--border);
+  color: var(--critical);
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-left-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

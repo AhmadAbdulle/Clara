@@ -1,0 +1,22 @@
+export const techniqueLookup = {
+  "T1190": "Exploit Public-Facing Application",
+  "T1059": "Command and Scripting Interpreter",
+  "T1078": "Valid Accounts",
+  "T1110": "Brute Force",
+  "T1133": "External Remote Services",
+  "T1562": "Impair Defenses",
+  "T1070": "Indicator Removal",
+  "T1036": "Masquerading",
+  "T1055": "Process Injection",
+  "T1547": "Boot or Logon Autostart Execution",
+  "T1053": "Scheduled Task",
+  "T1003": "OS Credential Dumping",
+  "T1082": "System Information Discovery",
+  "T1083": "File and Directory Discovery",
+  "T1021": "Remote Services",
+  "T1560": "Archive Collected Data",
+  "T1041": "Exfiltration Over C2 Channel",
+  "T1071": "Application Layer Protocol",
+  "T1486": "Data Encrypted for Impact",
+  "T1595": "Active Scanning"
+};
